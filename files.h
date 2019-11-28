@@ -16,7 +16,7 @@ std::vector<std::string> getFilesArray() {
 	{
 		if (!fs::is_regular_file(item.path()) || item.path().extension() != ".cpp" && item.path().extension() != ".h" && item.path().extension() != ".hpp")
 			continue;
-		filesList.push_back(item.path().string().substr(1));
+		filesList.push_back(item.path().string());
 	}
 
 	return filesList;

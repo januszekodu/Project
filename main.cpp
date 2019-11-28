@@ -1,8 +1,9 @@
 #include <iostream>
 #include "Parse/Parser.h"
+#include "files.h"
 
 int main()
 {
-    std::vector<std::string> files = {"C:\\Users\\rober\\Desktop\\ExampleFile.cpp"};
+	std::vector<std::string> files = getFilesArray();
     parse(files);
 }
