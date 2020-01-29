@@ -9,8 +9,11 @@ namespace Search
 		std::string cFile;
 
 		boost::char_separator<char> lSep("\"");
+		boost::char_separator<char> llSep("/");
+		boost::char_separator<char> lllSep("\\");
+		
 
-		boost::tokenizer<boost::char_separator<char>> tokens(fileName, lSep);
+		boost::tokenizer<boost::char_separator<char>> tokens(fileName, lllSep);
 
 		std::string line;
 		std::ifstream file;
@@ -22,19 +25,25 @@ namespace Search
 
 		}
 
+		for (auto const &token : tokens) {
+			cFile = token;
+		}
+
 		while (std::getline(file, line))
 		{
 			if (line.find("namespace") != std::string::npos)
 			{
-				tokenizer tokens(line, lSep);
+				tokenizer tokens(line, llSep);
 
 				for (tokenizer::iterator token_it = tokens.begin(); token_it != tokens.end(); token_it++)
 				{
 					if (distance(tokens.begin(), token_it) == 1)
 					{
 						std::string temp = *token_it;
+						std::cout << temp;
 						std::string Name;
 						boost::tokenizer<boost::char_separator<char>> fileTokens(temp, lSep);
+						std::cout << *token_it;
 						for (auto const &token : fileTokens)
 						{
 							Name = token;
@@ -50,6 +59,7 @@ namespace Search
 
 		}
 		fileMap.insert(std::pair<std::string, std::vector<std::string>>(cFile, fileVector));
+		
 
 	}
 
@@ -82,7 +92,8 @@ namespace Search
 
 			for (auto it = fileMap.cbegin(); it != fileMap.cend(); ++it)
 			{
-				std::cout << "Nazwa metody: " << it->first << std::endl;
+				std::cout << "Nazwa metody: ";
+				std::cout<< it->first << std::endl;
 				std::cout << "Jej powiazania: ";
 				for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2)
 					std::cout << *it2 << " ";
