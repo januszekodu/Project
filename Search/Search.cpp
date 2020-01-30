@@ -8,8 +8,7 @@ namespace Search
 		std::vector<std::string> fileVector;
 		std::string cFile;
 
-		boost::char_separator<char> lSep("\"");
-		boost::char_separator<char> llSep("/");
+		boost::char_separator<char> lSep(" ");
 		boost::char_separator<char> lllSep("\\");
 		
 
@@ -33,31 +32,32 @@ namespace Search
 		{
 			if (line.find("namespace") != std::string::npos)
 			{
-				tokenizer tokens(line, llSep);
+					tokenizer tokens(line, lSep);
 
-				for (tokenizer::iterator token_it = tokens.begin(); token_it != tokens.end(); token_it++)
-				{
-					if (distance(tokens.begin(), token_it) == 1)
+					for (tokenizer::iterator token_it = tokens.begin(); token_it != tokens.end(); token_it++)
 					{
-						std::string temp = *token_it;
-						std::cout << temp;
-						std::string Name;
-						boost::tokenizer<boost::char_separator<char>> fileTokens(temp, lSep);
-						std::cout << *token_it;
-						for (auto const &token : fileTokens)
+						if (distance(tokens.begin(), token_it) == 1)
 						{
-							Name = token;
+							std::string temp = *token_it;
+							std::string Name;
+							boost::tokenizer<boost::char_separator<char>> fileTokens(temp, lSep);
+							for (auto const &token : fileTokens)
+							{
+								Name = token;
+							}
+							fileVector.emplace_back(Name);
+
 						}
-						fileVector.emplace_back(Name);
 
 					}
-
-				}
-
 			}
 
 
 		}
+
+		if (cFile == "Search.cpp")
+			fileVector.pop_back();
+
 		fileMap.insert(std::pair<std::string, std::vector<std::string>>(cFile, fileVector));
 		
 
@@ -82,12 +82,17 @@ namespace Search
 		}
 	}
 
+	
+
 	fMap cone(std::vector<std::string> FileList)
 	{
 		fMap fileMap;
 		for (auto const &it : FileList)
 		{
 			SearchF(it, fileMap);
+
+		}
+		cMap(fileMap);
 
 
 			for (auto it = fileMap.cbegin(); it != fileMap.cend(); ++it)
@@ -100,7 +105,9 @@ namespace Search
 				std::cout << std::endl << std::endl;
 			}
 			
-		}
+		
+		
+
 		return fileMap;
 	}
 }
