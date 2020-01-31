@@ -1,4 +1,3 @@
-
 #pragma once
 #include <iostream>
 #include <string>
@@ -6,8 +5,6 @@
 #include <fstream>
 #include <map>
 #include <vector>
-
-
 
 
 namespace Search
@@ -20,7 +17,5 @@ namespace Search
 	fMap cone(std::vector<std::string> FileList);
 
 	void cMap(fMap &fileMap);
-
-
 
 }
