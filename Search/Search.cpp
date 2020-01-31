@@ -3,14 +3,15 @@
 namespace Search
 {
 
-	void SearchF(std::string const& fileName, fMap& fileMap)
+	void SearchF(std::string const &fileName, fMap &fileMap)
 	{
 		std::vector<std::string> fileVector;
 		std::string cFile;
 
-		boost::char_separator<char> lSep(" ");
+		boost::char_separator<char> lSep("\"");
+		boost::char_separator<char> llSep("/");
 		boost::char_separator<char> lllSep("\\");
-
+		
 
 		boost::tokenizer<boost::char_separator<char>> tokens(fileName, lllSep);
 
@@ -24,7 +25,7 @@ namespace Search
 
 		}
 
-		for (auto const& token : tokens) {
+		for (auto const &token : tokens) {
 			cFile = token;
 		}
 
@@ -32,16 +33,18 @@ namespace Search
 		{
 			if (line.find("namespace") != std::string::npos)
 			{
-				tokenizer tokens(line, lSep);
+				tokenizer tokens(line, llSep);
 
 				for (tokenizer::iterator token_it = tokens.begin(); token_it != tokens.end(); token_it++)
 				{
 					if (distance(tokens.begin(), token_it) == 1)
 					{
 						std::string temp = *token_it;
+						std::cout << temp;
 						std::string Name;
 						boost::tokenizer<boost::char_separator<char>> fileTokens(temp, lSep);
-						for (auto const& token : fileTokens)
+						std::cout << *token_it;
+						for (auto const &token : fileTokens)
 						{
 							Name = token;
 						}
@@ -50,24 +53,21 @@ namespace Search
 					}
 
 				}
+
 			}
 
 
 		}
-
-		if (cFile == "Search.cpp")
-			fileVector.pop_back();
-
 		fileMap.insert(std::pair<std::string, std::vector<std::string>>(cFile, fileVector));
-
+		
 
 	}
 
+	
 
+	
 
-
-
-	void cMap(fMap& fileMap)
+	void cMap(fMap &fileMap)
 	{
 		for (auto it = fileMap.cbegin(); it != fileMap.cend();)
 		{
@@ -82,31 +82,31 @@ namespace Search
 		}
 	}
 
-
-
 	fMap cone(std::vector<std::string> FileList)
 	{
 		fMap fileMap;
-		for (auto const& it : FileList)
+		for (auto const &it : FileList)
 		{
 			SearchF(it, fileMap);
+
+
+			for (auto it = fileMap.cbegin(); it != fileMap.cend(); ++it)
+			{
+				std::cout << "Nazwa metody: ";
+				std::cout<< it->first << std::endl;
+				std::cout << "Jej powiazania: ";
+				for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2)
+					std::cout << *it2 << " ";
+				std::cout << std::endl << std::endl;
+			}
+			
 		}
-		cMap(fileMap);
-
-
-		//for (auto it = fileMap.cbegin(); it != fileMap.cend(); ++it)
-		//{
-		//	//std::cout << "Nazwa metody: ";
-		//	std::cout << it->first << std::endl;
-		//	//std::cout << "Jej powiazania: ";
-		//	for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2)
-		//		std::cout << *it2 << " ";
-		//	std::cout << std::endl << std::endl;
-		//}
-
-
-
-
 		return fileMap;
 	}
 }
+
+
+
+
+
+
