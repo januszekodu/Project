@@ -1,7 +1,7 @@
 #include "Parse/Parse.h"
 #include "Graph/Parser.h"
 #include "files.h"
-#include "Print/Print.h"
+#include "Printer/Printer.h"
 
 int main()
 {
@@ -13,5 +13,6 @@ int main()
 
     std::vector<Graph::Edge> graphEdges = parser.parse(fileMap);
 
-    print::print(graphEdges);
+    Printer::Printer printer;
+    printer.PrintDep(graphEdges);
 }
