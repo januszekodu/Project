@@ -8,7 +8,6 @@ namespace graph3 {
 
 	std::vector<std::string> getUsedNamespaces(std::string filePath) {
 		std::vector<std::string> NSpaces;
-		
 		std::string line;
 		std::ifstream file;
 
@@ -33,8 +32,7 @@ namespace graph3 {
 		fMap fileMap = Search::cone(fileList);
 		std::vector<std::string> userNamespaces;
 
-		for (auto it = fileMap.cbegin(); it != fileMap.cend(); ++it)
-		{
+		for (auto it = fileMap.cbegin(); it != fileMap.cend(); ++it){
 			for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2)
 				userNamespaces.push_back(*it2);
 		}
@@ -65,11 +63,9 @@ namespace graph3 {
 			for (int j = 0; j < userUsed.size(); j++) {
 				filesAndNamespaces.push_back(Edge(fileList[i], userUsed[j]));
 			}
-	
 		}
 		return filesAndNamespaces;
 	}
-
 
 	std::vector<Edge> getNSConnections(fList fileList) {
 		std::vector<Edge> nsConnections;
@@ -103,9 +99,8 @@ namespace graph3 {
 					Graph[j].second++;
 					Graph.erase(Graph.begin() + k);
 				}
-				else {
+				else 
 					k++;
-				}
 			}
 		}
 		return Graph;
@@ -115,8 +110,7 @@ namespace graph3 {
 		std::vector<Edge> nsConnections = getNSConnections(fileList);
 		Graph graph = getWeight(nsConnections);
 
-		for (auto const& g : graph)
-		{
+		for (auto const& g : graph){
 			std::cout << g.first.first << " ---> " << g.first.second << "  WEIGHT: "<< g.second << std::endl;
 		}
 

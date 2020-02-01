@@ -9,13 +9,16 @@ namespace graph3
 	typedef std::pair<std::string, std::string> Edge;
 	typedef std::vector<std::pair<Edge, unsigned int>> Graph;
 
+	void removeDuplicates(std::vector<std::string>&);
+	void PrintModulesConnection(fList);
 
 	std::vector<Edge> searchForConnections(fList);
-	void removeDuplicates(std::vector<std::string>&);
+	std::vector<Edge> getNSConnections(fList);
+
 	std::vector<std::string> getUserCreatedNamespaces(fList);
 	std::vector<std::string> getUsedNamespaces(std::string);
-	std::vector<std::string> getUsedUserNamespaces(std::string filePath, std::vector<std::string>userNamespaces, std::vector<std::string> usedNamespaces);
-	std::vector<Edge> getNSConnections(fList);
+	std::vector<std::string> getUsedUserNamespaces(std::string, std::vector<std::string>, std::vector<std::string>);
+	
 	Graph getWeight(std::vector<Edge>);
-	void PrintModulesConnection(fList);
+	
 }
