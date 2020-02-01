@@ -19,12 +19,10 @@ namespace graph3 {
 					line = line.substr(0, line.find_first_of("::"));
 					if (line.find(" ") != std::string::npos)
 						line = line.substr(line.find_last_of(" "), line.length());
-
 					line.erase(std::remove(line.begin(), line.end(), '\t'));
-					line.erase(std::remove(line.begin(), line.end(), ' '));
+					line.erase(std::remove(line.begin(), line.end()-1, ' '));
 					NSpaces.push_back(line);
 				}
-
 			}
 		}
 		return NSpaces;
@@ -64,8 +62,9 @@ namespace graph3 {
 		for (int i = 0; i < fileList.size(); i++) {
 			std::vector<std::string> usedNamespaces = getUsedNamespaces(fileList[i]);
 			std::vector<std::string> userUsed = getUsedUserNamespaces(fileList[i], userNamespaces, usedNamespaces);
-			for (int j = 0; j < userUsed.size(); j++)
+			for (int j = 0; j < userUsed.size(); j++) {
 				filesAndNamespaces.push_back(Edge(fileList[i], userUsed[j]));
+			}
 	
 		}
 		return filesAndNamespaces;
@@ -90,32 +89,35 @@ namespace graph3 {
 		return nsConnections;
 	}
 
+	Graph getWeight(std::vector<Edge> nsConnections) {
+		Graph Graph;
+		
+		for (int i = 0; i < nsConnections.size(); i++) {
+			Graph.push_back(std::pair(nsConnections[i], 1));
+		}
 
-	void PrintModulesConnection(fList fileList) {
-		std::vector<Edge> nsConnections = getNSConnections(fileList);
-		std::vector<int> weights;
-		std::vector<int> weightEl;
-
-		for (int j = 0; j < nsConnections.size(); j++) {
-			weights.push_back(1);
-			weightEl.push_back(j);
-			for (int k = j + 1; k < nsConnections.size();) {
-				if (nsConnections[j].second == nsConnections[k].second){
-					weights[j]++;
-					nsConnections.erase(nsConnections.begin() + k);
+		for (int j = 0; j < Graph.size(); j++) {
+			for (int k = j + 1; k < Graph.size();) {
+				if (Graph[j].first.first == Graph[k].first.first &&
+					Graph[j].first.second == Graph[k].first.second) {
+					Graph[j].second++;
+					Graph.erase(Graph.begin() + k);
 				}
 				else {
-					k++;   
+					k++;
 				}
 			}
 		}
+		return Graph;
+	}
 
-		int it = 0;
-		for (auto const& ns : nsConnections)
+	void PrintModulesConnection(fList fileList) {
+		std::vector<Edge> nsConnections = getNSConnections(fileList);
+		Graph graph = getWeight(nsConnections);
+
+		for (auto const& g : graph)
 		{
-			
-			std::cout << ns.first << " ---> " << ns.second << " WEIGHT: " << weights[weightEl[it]] << std::endl;
-			it++;
+			std::cout << g.first.first << " ---> " << g.first.second << "  WEIGHT: "<< g.second << std::endl;
 		}
 
 	}
