@@ -16,7 +16,7 @@ namespace functionParser
 
     std::string get_include(const std::string &line)
     {
-        std::regex exp((R"([<\"][^>\"](\w*)[>\"]\\s*")"));
+        std::regex exp((R"([<\"][^>\"](\w+)[>\"]\\s*")"));
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
             return match.str(1);
@@ -30,7 +30,7 @@ namespace functionParser
 
     std::string get_namespace(const std::string &line)
     {
-        std::regex exp(R"(.*\s(\w*)$)");
+        std::regex exp(R"(.*\s(\w+)$)");
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
             return match.str(1);
@@ -38,13 +38,13 @@ namespace functionParser
 
     bool is_function_header(const std::string& line)
     {
-        std::regex exp(R"(.*(\(.*\))\s*\;)");
+        std::regex exp(R"(.*\s\w+(\(.*\))\s*\;)");
         return std::regex_match(line, exp);
     }
 
     std::string get_function_header(const std::string &line)
     {
-        std::regex exp(R"(.*\s*(\w*)\(\)\;)");
+        std::regex exp(R"(.*\s*(\w+)\(\)\;)");
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
             return match.str(1);
@@ -52,13 +52,13 @@ namespace functionParser
 
     bool is_function_call(const std::string &line)
     {
-        std::regex exp(R"((return|=)\s(\w*)\(.*\)\;)");
+        std::regex exp(R"((return|=)\s(\w+)\(.*\)\;)");
         return std::regex_match(line, exp);
     }
 
     std::string get_function_call(const std::string &line)
     {
-        std::regex exp(R"((return|=)\s(\w*)\(.*\)\;)");
+        std::regex exp(R"((return|=)\s(\w+)\(.*\)\;)");
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
             return match.str(2);
