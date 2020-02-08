@@ -24,13 +24,13 @@ namespace functionParser
 
     bool is_namespace(const std::string &line)
     {
-        std::regex exp(R"(^\s*(namespace)\s)");
+        std::regex exp(R"(^(namespace)\s.*)");
         return std::regex_match(line, exp);
     }
 
     std::string get_namespace(const std::string &line)
     {
-        std::regex exp(R"(\s(\w*)$)");
+        std::regex exp(R"(.*\s(\w*)$)");
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
             return match[1];
