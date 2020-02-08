@@ -6,7 +6,8 @@
 #include<filesystem>
 
 
-namespace filesOperations {
+namespace filesOperations
+{
 	std::vector<std::string> getFilesArray();
 	std::string getNameFromPath(std::string);
 }

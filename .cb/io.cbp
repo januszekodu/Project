@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="io" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../bin/Debug/io" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../" />
+				<Option object_output="../obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++17" />
+					<Add option="-lstdc++fs" />
+					<Add option="-g" />
+					<Add directory="../lib/boost/boost_1_60_0" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/io" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="../../lib/boost/boost_1_60_0" />
+		</Compiler>
+		<Unit filename="../FilesOperations/Files.cpp" />
+		<Unit filename="../FilesOperations/Files.h" />
+		<Unit filename="../FunctionParser/FunctionParser.cpp" />
+		<Unit filename="../FunctionParser/FunctionParser.h" />
+		<Unit filename="../FunctionParser/function_dependency.cpp" />
+		<Unit filename="../FunctionParser/function_dependency.h" />
+		<Unit filename="../Graph3/Graph3.cpp" />
+		<Unit filename="../Graph3/Graph3.h" />
+		<Unit filename="../Graph/Parser.cpp" />
+		<Unit filename="../Graph/Parser.h" />
+		<Unit filename="../Parse/Parse.cpp" />
+		<Unit filename="../Parse/Parse.h" />
+		<Unit filename="../Print/Print.cpp" />
+		<Unit filename="../Print/Print.h" />
+		<Unit filename="../Search/Search.cpp" />
+		<Unit filename="../Search/Search.h" />
+		<Unit filename="../main.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

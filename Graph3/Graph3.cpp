@@ -1,12 +1,15 @@
 #include"Graph3.h"
 
-namespace graph3 {
+namespace graph3
+{
 
-	void removeDuplicates(std::vector<std::string>& stringArray) {
+	void removeDuplicates(std::vector<std::string>& stringArray)
+	{
 		stringArray.erase(std::unique(stringArray.begin(), stringArray.end()), stringArray.end());
 	}
 
-	std::vector<std::string> getUsedNamespaces(std::string filePath) {
+	std::vector<std::string> getUsedNamespaces(std::string filePath)
+	{
 		std::vector<std::string> NSpaces;
 		std::string line;
 		std::ifstream file;
@@ -27,7 +30,8 @@ namespace graph3 {
 		return NSpaces;
 	}
 
-	std::vector<std::string> getUserCreatedNamespaces(fList fileList) {
+	std::vector<std::string> getUserCreatedNamespaces(fList fileList)
+    {
 
 		fMap fileMap = Search::cone(fileList);
 		std::vector<std::string> userNamespaces;
@@ -41,7 +45,8 @@ namespace graph3 {
 		return userNamespaces;
 	}
 
-	std::vector<std::string> getUsedUserNamespaces(std::string filePath, std::vector<std::string>userNamespaces, std::vector<std::string> usedNamespaces) {
+	std::vector<std::string> getUsedUserNamespaces(std::string filePath, std::vector<std::string>userNamespaces, std::vector<std::string> usedNamespaces)
+	{
 		std::vector<std::string> listOfFiles;
 		for (int i = 0; i < usedNamespaces.size(); i++) {
 			for (int j = 0; j < userNamespaces.size(); j++) {
@@ -54,7 +59,8 @@ namespace graph3 {
 	}
 
 
-	std::vector<Edge> searchForConnections(fList fileList){
+	std::vector<Edge> searchForConnections(fList fileList)
+	{
 		std::vector<Edge> filesAndNamespaces;
 		std::vector<std::string> userNamespaces = getUserCreatedNamespaces(fileList);
 		for (int i = 0; i < fileList.size(); i++) {
@@ -67,7 +73,8 @@ namespace graph3 {
 		return filesAndNamespaces;
 	}
 
-	std::vector<Edge> getNSConnections(fList fileList) {
+	std::vector<Edge> getNSConnections(fList fileList)
+	{
 		std::vector<Edge> nsConnections;
 		std::vector<Edge> fileConnections = searchForConnections(fileList);
 
@@ -85,9 +92,10 @@ namespace graph3 {
 		return nsConnections;
 	}
 
-	Graph getWeight(std::vector<Edge> nsConnections) {
+	Graph getWeight(std::vector<Edge> nsConnections)
+	{
 		Graph Graph;
-		
+
 		for (int i = 0; i < nsConnections.size(); i++) {
 			Graph.push_back(std::pair(nsConnections[i], 1));
 		}
@@ -99,14 +107,15 @@ namespace graph3 {
 					Graph[j].second++;
 					Graph.erase(Graph.begin() + k);
 				}
-				else 
+				else
 					k++;
 			}
 		}
 		return Graph;
 	}
 
-	void PrintModulesConnection(fList fileList) {
+	void PrintModulesConnection(fList fileList)
+	{
 		std::vector<Edge> nsConnections = getNSConnections(fileList);
 		Graph graph = getWeight(nsConnections);
 

@@ -1,8 +1,9 @@
 #include "Files.h"
 
-namespace filesOperations {
-
-	std::vector<std::string> getFilesArray() {
+namespace filesOperations
+{
+	std::vector<std::string> getFilesArray()
+	{
 
 		auto dir = ".";
 		std::vector<std::string> filesList;
@@ -15,7 +16,8 @@ namespace filesOperations {
 		return filesList;
 	}
 
-	std::string getNameFromPath(std::string fileName) {
+	std::string getNameFromPath(std::string fileName)
+	{
 		std::string sep = "\\";
 		return fileName.substr(fileName.find_last_of(sep)+1, fileName.length() );
 	}

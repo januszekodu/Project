@@ -3,7 +3,8 @@
 namespace fileParse
 {
 
-    void searchInFile(std::string const &fileName, FileMap &fileMap) {
+    void searchInFile(std::string const &fileName, FileMap &fileMap)
+    {
         std::vector<std::string> vectorWithFiles;
         std::string currentFile;
 
@@ -49,7 +50,8 @@ namespace fileParse
         fileMap.insert(std::pair<std::string, std::vector<std::string>>(currentFile, vectorWithFiles));
     }
 
-    void cleanMap(FileMap &fileMap) {
+    void cleanMap(FileMap &fileMap)
+    {
         for (auto it = fileMap.cbegin(); it != fileMap.cend();) {
             if (it->second.empty()) {
                 fileMap.erase(it++);
@@ -59,7 +61,8 @@ namespace fileParse
         }
     }
 
-    FileMap parse(std::vector<std::string> listOfFiles) {
+    FileMap parse(std::vector<std::string> listOfFiles)
+    {
 
         FileMap fileMap;
 

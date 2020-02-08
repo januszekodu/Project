@@ -21,6 +21,4 @@ namespace Search
 
 	void cMap(fMap &fileMap);
 
-
-
 }
