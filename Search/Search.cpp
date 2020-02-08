@@ -24,7 +24,8 @@ namespace Search
 
 		}
 
-		for (auto const& token : tokens) {
+		for (auto const& token : tokens)
+        {
 			cFile = token;
 		}
 

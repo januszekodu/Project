@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1581184316 source:d:\dokumenty\projekty\cpp\io\functionparser\functionparser.cpp
+1581192055 source:d:\dokumenty\projekty\cpp\io\functionparser\functionparser.cpp
+	"FunctionParser.h"
 	<iostream>
 	<string>
 	<regex>
-	"FunctionParser.h"
 
 1581024956 source:d:\dokumenty\projekty\cpp\io\graph\parser.cpp
 	<map>
@@ -16,24 +16,24 @@
 	<string>
 	<vector>
 
-1581183001 source:d:\dokumenty\projekty\cpp\io\filesoperations\files.cpp
+1581190335 source:d:\dokumenty\projekty\cpp\io\filesoperations\files.cpp
 	"Files.h"
 
-1581031329 d:\dokumenty\projekty\cpp\io\filesoperations\files.h
+1581190335 d:\dokumenty\projekty\cpp\io\filesoperations\files.h
 	<iostream>
 	<vector>
 	<string>
 	<fstream>
 	<filesystem>
 
-1581024956 source:d:\dokumenty\projekty\cpp\io\graph3\graph3.cpp
+1581192306 source:d:\dokumenty\projekty\cpp\io\graph3\graph3.cpp
 	"Graph3.h"
 
 1581024956 d:\dokumenty\projekty\cpp\io\graph3\graph3.h
 	"../Search/Search.h"
 	"../FilesOperations/Files.h"
 
-1581099587 d:\dokumenty\projekty\cpp\io\search\search.h
+1581190335 d:\dokumenty\projekty\cpp\io\search\search.h
 	<iostream>
 	<string>
 	<boost/tokenizer.hpp>
@@ -1902,7 +1902,7 @@
 
 1444601386 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\exception\exception.hpp
 
-1581187055 source:d:\dokumenty\projekty\cpp\io\main.cpp
+1581192446 source:d:\dokumenty\projekty\cpp\io\main.cpp
 	"Parse/Parse.h"
 	"Graph/Parser.h"
 	"Print/Print.h"
@@ -1923,28 +1923,28 @@
 	<string>
 	<iostream>
 
-1581024956 source:d:\dokumenty\projekty\cpp\io\parse\parse.cpp
+1581192341 source:d:\dokumenty\projekty\cpp\io\parse\parse.cpp
 	"Parse.h"
 
 1581024956 source:d:\dokumenty\projekty\cpp\io\print\print.cpp
 	"Print.h"
 
-1581024956 source:d:\dokumenty\projekty\cpp\io\search\search.cpp
+1581192371 source:d:\dokumenty\projekty\cpp\io\search\search.cpp
 	"Search.h"
 
-1581186440 d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.h
+1581190335 d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.h
 	<string>
 	<vector>
 	<map>
 	<fstream>
 	"FunctionParser.h"
 
-1581186436 source:d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.cpp
+1581191598 source:d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.cpp
 	"FunctionParser.h"
 	"function_dependency.h"
 	<iostream>
 	<map>
 
-1581181997 d:\dokumenty\projekty\cpp\io\functionparser\functionparser.h
+1581190335 d:\dokumenty\projekty\cpp\io\functionparser\functionparser.h
 	<string>
 

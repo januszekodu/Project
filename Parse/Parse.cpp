@@ -17,25 +17,32 @@ namespace fileParse
         std::string line;
         std::ifstream file;
         file.open(fileName);
-        if (!file.is_open()) {
+        if (!file.is_open())
+        {
             perror("Error open");
             exit(EXIT_FAILURE);
         }
 
-        for (auto const &token : tokens) {
+        for (auto const &token : tokens)
+        {
             currentFile = token;
         }
 
-        while (std::getline(file, line)) {
-            if (line.find("include") != std::string::npos) {
+        while (std::getline(file, line))
+        {
+            if (line.find("include") != std::string::npos)
+            {
                 tokenizer tokens(line, lineSeparator);
 
-                for (tokenizer::iterator token_it = tokens.begin(); token_it != tokens.end(); ++token_it) {
-                    if (distance(tokens.begin(), token_it) == 1) {
+                for (tokenizer::iterator token_it = tokens.begin(); token_it != tokens.end(); ++token_it)
+                {
+                    if (distance(tokens.begin(), token_it) == 1)
+                    {
                         std::string tmp = *token_it;
                         std::string returnName;
                         boost::tokenizer<boost::char_separator<char>> fileTokens(tmp, fileNameSmallSeparator);
-                        for (auto const &token : fileTokens) {
+                        for (auto const &token : fileTokens)
+                        {
                             returnName = token;
                         }
                         vectorWithFiles.emplace_back(returnName);
@@ -52,10 +59,14 @@ namespace fileParse
 
     void cleanMap(FileMap &fileMap)
     {
-        for (auto it = fileMap.cbegin(); it != fileMap.cend();) {
-            if (it->second.empty()) {
+        for (auto it = fileMap.cbegin(); it != fileMap.cend();)
+        {
+            if (it->second.empty())
+            {
                 fileMap.erase(it++);
-            } else {
+            }
+            else
+            {
                 ++it;
             }
         }
