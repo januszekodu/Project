@@ -2,6 +2,9 @@
 #include "function_dependency.h"
 #include <iostream>
 #include <map>
+#include <boost/algorithm/string/predicate.hpp>
+
+using namespace std;
 
 namespace functionParser
 {
@@ -11,9 +14,14 @@ namespace functionParser
 
             std::ifstream file;
 
-            file.open(filePath);
-
             FunctionDependency tmp;
+
+            if (boost::algorithm::ends_with(filePath, ".h") || boost::algorithm::ends_with(filePath, ".hpp"))
+            {
+                return tmp;
+            }
+
+            file.open(filePath);
 
             if (!file.is_open())
             {
