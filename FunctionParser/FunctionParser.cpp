@@ -16,7 +16,7 @@ namespace functionParser
 
     std::string get_include(const std::string &line)
     {
-        std::regex exp((R"([<\"][^>\"](\w+)[>\"]\\s*")"));
+        std::regex exp(R"(.+\s*[<\"][^>\"](\.+)[>\"])");
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
             return match.str(1);
