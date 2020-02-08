@@ -19,7 +19,7 @@ namespace functionParser
         std::regex exp((R"([<\"][^>\"](\w*)[>\"]\\s*")"));
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
-            return match[1];
+            return match.str(1);
     }
 
     bool is_namespace(const std::string &line)
@@ -33,7 +33,7 @@ namespace functionParser
         std::regex exp(R"(.*\s(\w*)$)");
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
-            return match[1];
+            return match.str(1);
     }
 
     bool is_function_header(const std::string& line)
@@ -47,7 +47,7 @@ namespace functionParser
         std::regex exp(R"(.*\s*(\w*)\(\)\;)");
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
-            return match[1];
+            return match.str(1);
     }
 
     bool is_function_call(const std::string &line)
@@ -61,7 +61,7 @@ namespace functionParser
         std::regex exp(R"((return|=)\s(\w*)\(.*\)\;)");
         std::smatch match;
         if (std::regex_search(line.begin(), line.end(), match, exp))
-            return match[1];
+            return match.str(2);
     }
 
     bool is_block_opening_bracket(const std::string &line)
