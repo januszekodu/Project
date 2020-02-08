@@ -10,7 +10,7 @@ namespace functionParser
 {
     bool is_include(const std::string &line)
     {
-        std::regex exp(R"(^\s*\#include\s)");
+        std::regex exp(R"(^\s*(#include)\s*)");
         return std::regex_match(line, exp);
     }
 
@@ -38,7 +38,7 @@ namespace functionParser
 
     bool is_function_header(const std::string& line)
     {
-        std::regex exp(R"(.*\s\w+(\((.*)\)\;?)");
+        std::regex exp(R"(.*\s\w+(\((.*)\))\;?)");
         return std::regex_match(line, exp);
     }
 
