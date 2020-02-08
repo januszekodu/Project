@@ -1,7 +1,8 @@
 //
 // Created by janvsz on 04.02.2020.
 //
-#import <iostream>
+#include"FunctionParser.h"
+#include<iostream>
 #include<string>
 #include<regex>
 
