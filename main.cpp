@@ -1,6 +1,6 @@
 #include "Parse/Parse.h"
 #include "Graph/Parser.h"
-#include "Print/Print.h"
+#include "Printer/Printer.h"
 #include "Graph3/Graph3.h"
 #include "FilesOperations/Files.h"
 #include "FunctionParser/function_dependency.h"
@@ -25,7 +25,8 @@ void FirstStory()
 	fileParse::FileMap fileMap = fileParse::parse(files);
 	std::vector<Graph::Edge> graphEdges = parser.parse(fileMap);
 
-	print::print(graphEdges);
+    Printer::Printer printer;
+    printer.PrintDep(graphEdges);
 
 	std::cout << std::endl;
 }
