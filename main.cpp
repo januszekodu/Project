@@ -63,6 +63,6 @@ void ThirdStory()
 {
 	std::cout << "Third story:\n\n";
 	std::vector<std::string> files = filesOperations::getFilesArray();
-	graph3::PrintModulesConnection(files);
+	graph3::Graph graph = graph3::getGraph(files);
 	std::cout << std::endl;
 }
