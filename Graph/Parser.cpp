@@ -6,7 +6,7 @@
 
 namespace Graph
 {
-    std::vector<Edge> Parser::parse(const Dependencies dependencies)
+    std::vector<Edge> parse(const Dependencies dependencies)
     {
         std::vector<Edge> edges;
 
