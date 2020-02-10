@@ -117,7 +117,7 @@ namespace fileParse
     {
         FilePair filePair;
         FileMap fileMap;
-
+        std::vector<FileData> fileDataVec;
         for (auto const &it: listOfFiles)
         {
             searchInFile(it, fileMap, fileDataVec);
