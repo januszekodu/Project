@@ -23,8 +23,8 @@ void FirstStory()
 	Graph::Parser parser;
 	std::vector<std::string> files = filesOperations::getFilesArray();
 
-	fileParse::FilePair filepair = fileParse::parse(files);
-	std::vector<Graph::Edge> graphEdges = parser.parse(filepair);
+	fileParse::FilePair filePair = fileParse::parse(files);
+	std::vector<Graph::Edge> graphEdges = parser.parse(filePair.second);
 
 
     parserDOT::ParseToDOT_1(graphEdges); //parsowanie danych wektora graphEdges do pliku graph.dot
