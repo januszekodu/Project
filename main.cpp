@@ -24,7 +24,7 @@ void FirstStory()
 	std::vector<std::string> files = filesOperations::getFilesArray();
 
 	fileParse::FilePair filePair = fileParse::parse(files);
-	std::vector<Graph::Edge> graphEdges = Graph::parse(filepair);
+	std::vector<Graph::Edge> graphEdges = Graph::parse(filePair.second);
 
     parserDOT::ParseToDOT_1(graphEdges); //parsowanie danych wektora graphEdges do pliku graph.dot
     Graphviz::GenGraph(); //generowanie z pliku graph.dot pliku graph.jpg
@@ -52,7 +52,10 @@ void SecondStory()
     }
 
 	std::vector<Graph::Edge> graphEdges = Graph::parse(allDependencies);
-	print::print(graphEdges);
+
+    parserDOT::ParseToDOT_1(graphEdges); //parsowanie danych wektora graphEdges do pliku graph.dot
+    Graphviz::GenGraph(); //generowanie z pliku graph.dot pliku graph.jpg
+    Graphviz::OpenGraph(); //otwarcie grafu (pliku graph.jpg)
 }
 
 void ThirdStory()

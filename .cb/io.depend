@@ -1,17 +1,17 @@
 # depslib dependency file v1.0
-1581367570 source:d:\dokumenty\projekty\cpp\io\functionparser\functionparser.cpp
+1581372024 source:d:\dokumenty\projekty\cpp\io\functionparser\functionparser.cpp
 	"FunctionParser.h"
 	<iostream>
 	<string>
 	<regex>
 
-1581363412 source:d:\dokumenty\projekty\cpp\io\graph\parser.cpp
+1581372024 source:d:\dokumenty\projekty\cpp\io\graph\parser.cpp
 	<map>
 	<string>
 	<vector>
 	"Parser.h"
 
-1581363404 d:\dokumenty\projekty\cpp\io\graph\parser.h
+1581372024 d:\dokumenty\projekty\cpp\io\graph\parser.h
 	<map>
 	<string>
 	<vector>
@@ -26,10 +26,10 @@
 	<fstream>
 	<filesystem>
 
-1581192306 source:d:\dokumenty\projekty\cpp\io\graph3\graph3.cpp
+1581368324 source:d:\dokumenty\projekty\cpp\io\graph3\graph3.cpp
 	"Graph3.h"
 
-1581024956 d:\dokumenty\projekty\cpp\io\graph3\graph3.h
+1581368324 d:\dokumenty\projekty\cpp\io\graph3\graph3.h
 	"../Search/Search.h"
 	"../FilesOperations/Files.h"
 
@@ -1902,15 +1902,16 @@
 
 1444601386 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\exception\exception.hpp
 
-1581367144 source:d:\dokumenty\projekty\cpp\io\main.cpp
+1581372515 source:d:\dokumenty\projekty\cpp\io\main.cpp
 	"Parse/Parse.h"
 	"Graph/Parser.h"
-	"Print/Print.h"
 	"Graph3/Graph3.h"
 	"FilesOperations/Files.h"
 	"FunctionParser/function_dependency.h"
+	"Graphviz/Graphviz.h"
+	"ParserDOT/ParserDOT.h"
 
-1581024956 d:\dokumenty\projekty\cpp\io\parse\parse.h
+1581368324 d:\dokumenty\projekty\cpp\io\parse\parse.h
 	<iostream>
 	<string>
 	<boost/tokenizer.hpp>
@@ -1923,7 +1924,7 @@
 	<string>
 	<iostream>
 
-1581192341 source:d:\dokumenty\projekty\cpp\io\parse\parse.cpp
+1581372023 source:d:\dokumenty\projekty\cpp\io\parse\parse.cpp
 	"Parse.h"
 
 1581024956 source:d:\dokumenty\projekty\cpp\io\print\print.cpp
@@ -1932,14 +1933,14 @@
 1581192371 source:d:\dokumenty\projekty\cpp\io\search\search.cpp
 	"Search.h"
 
-1581367496 d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.h
+1581372024 d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.h
 	<string>
 	<vector>
 	<map>
 	<fstream>
 	"FunctionParser.h"
 
-1581366862 source:d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.cpp
+1581372024 source:d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.cpp
 	"FunctionParser.h"
 	"function_dependency.h"
 	<iostream>
@@ -1947,7 +1948,7 @@
 	<regex>
 	<boost/algorithm/string/predicate.hpp>
 
-1581367748 d:\dokumenty\projekty\cpp\io\functionparser\functionparser.h
+1581372024 d:\dokumenty\projekty\cpp\io\functionparser\functionparser.h
 	<string>
 	<vector>
 
@@ -2635,4 +2636,21 @@
 1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\detail\predicate.hpp
 	<iterator>
 	<boost/algorithm/string/find.hpp>
+
+1581368324 source:d:\dokumenty\projekty\cpp\io\graphviz\graphviz.cpp
+	<string>
+	"Graphviz.h"
+
+1581368324 d:\dokumenty\projekty\cpp\io\graphviz\graphviz.h
+	<string>
+
+1581368324 source:d:\dokumenty\projekty\cpp\io\parserdot\parserdot.cpp
+	"ParserDOT.h"
+	<string>
+	<fstream>
+
+1581368324 d:\dokumenty\projekty\cpp\io\parserdot\parserdot.h
+	<vector>
+	<string>
+	<iostream>
 
