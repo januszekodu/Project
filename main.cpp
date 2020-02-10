@@ -24,7 +24,7 @@ void FirstStory()
 	std::vector<std::string> files = filesOperations::getFilesArray();
 
 	fileParse::FilePair filePair = fileParse::parse(files);
-	std::vector<Graph::Edge> graphEdges = parser.parse(filePair.second);
+	std::vector<Graph::Edge> graphEdges = Graph::parse(filepair);
 
     parserDOT::ParseToDOT_1(graphEdges); //parsowanie danych wektora graphEdges do pliku graph.dot
     Graphviz::GenGraph(); //generowanie z pliku graph.dot pliku graph.jpg
