@@ -1,9 +1,10 @@
 #include "Parse/Parse.h"
 #include "Graph/Parser.h"
-#include "Printer/Printer.h"
 #include "Graph3/Graph3.h"
 #include "FilesOperations/Files.h"
 #include "FunctionParser/function_dependency.h"
+#include "Graphviz/Graphviz.h"
+#include "ParserDOT/ParserDOT.h"
 
 void FirstStory();
 void SecondStory();
@@ -11,8 +12,8 @@ void ThirdStory();
 
 int main(){
 	FirstStory();
-	SecondStory();
-	ThirdStory();
+	//SecondStory();
+	//ThirdStory();
 }
 
 void FirstStory()
@@ -25,10 +26,10 @@ void FirstStory()
 	fileParse::FileMap fileMap = fileParse::parse(files);
 	std::vector<Graph::Edge> graphEdges = parser.parse(fileMap);
 
-    Printer::Printer printer;
-    printer.PrintDep(graphEdges);
 
-	std::cout << std::endl;
+    parserDOT::ParseToDOT_1(graphEdges); //parsowanie danych wektora graphEdges do pliku graph.dot
+    Graphviz::GenGraph(); //generowanie z pliku graph.dot pliku graph.jpg
+    Graphviz::OpenGraph(); //otwarcie grafu (pliku graph.jpg)
 }
 
 void SecondStory()
