@@ -120,7 +120,7 @@ namespace fileParse
 
         for (auto const &it: listOfFiles)
         {
-            searchInFile(it, fileMap);
+            searchInFile(it, fileMap, fileDataVec);
         }
 
         cleanMap(fileMap);
