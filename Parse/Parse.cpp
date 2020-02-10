@@ -1,13 +1,12 @@
 #include "Parse.h"
 
-std::ifstream::pos_type getFileSize(std::string const& filePath)
-{
-    std::ifstream in(filePath, std::ifstream::ate | std::ifstream::binary);
-    return in.tellg();
-}
-
 namespace fileParse
 {
+    std::ifstream::pos_type getFileSize(std::string const& filePath)
+    {
+        std::ifstream in(filePath, std::ifstream::ate | std::ifstream::binary);
+        return in.tellg();
+    }
 
     void searchInFile(std::string const& fileName, FileMap & fileMap, std::vector<FileData> & fileDataVec)
     {
