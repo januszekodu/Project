@@ -1,17 +1,17 @@
 # depslib dependency file v1.0
-1581193501 source:d:\dokumenty\projekty\cpp\io\functionparser\functionparser.cpp
+1581373014 source:d:\dokumenty\projekty\cpp\io\functionparser\functionparser.cpp
 	"FunctionParser.h"
 	<iostream>
 	<string>
 	<regex>
 
-1581024956 source:d:\dokumenty\projekty\cpp\io\graph\parser.cpp
+1581373014 source:d:\dokumenty\projekty\cpp\io\graph\parser.cpp
 	<map>
 	<string>
 	<vector>
 	"Parser.h"
 
-1581024956 d:\dokumenty\projekty\cpp\io\graph\parser.h
+1581373014 d:\dokumenty\projekty\cpp\io\graph\parser.h
 	<map>
 	<string>
 	<vector>
@@ -26,10 +26,10 @@
 	<fstream>
 	<filesystem>
 
-1581192306 source:d:\dokumenty\projekty\cpp\io\graph3\graph3.cpp
+1581368324 source:d:\dokumenty\projekty\cpp\io\graph3\graph3.cpp
 	"Graph3.h"
 
-1581024956 d:\dokumenty\projekty\cpp\io\graph3\graph3.h
+1581368324 d:\dokumenty\projekty\cpp\io\graph3\graph3.h
 	"../Search/Search.h"
 	"../FilesOperations/Files.h"
 
@@ -1902,15 +1902,16 @@
 
 1444601386 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\exception\exception.hpp
 
-1581192446 source:d:\dokumenty\projekty\cpp\io\main.cpp
+1581375791 source:d:\dokumenty\projekty\cpp\io\main.cpp
 	"Parse/Parse.h"
 	"Graph/Parser.h"
-	"Print/Print.h"
 	"Graph3/Graph3.h"
 	"FilesOperations/Files.h"
 	"FunctionParser/function_dependency.h"
+	"Graphviz/Graphviz.h"
+	"ParserDOT/ParserDOT.h"
 
-1581024956 d:\dokumenty\projekty\cpp\io\parse\parse.h
+1581368324 d:\dokumenty\projekty\cpp\io\parse\parse.h
 	<iostream>
 	<string>
 	<boost/tokenizer.hpp>
@@ -1923,7 +1924,7 @@
 	<string>
 	<iostream>
 
-1581192341 source:d:\dokumenty\projekty\cpp\io\parse\parse.cpp
+1581374493 source:d:\dokumenty\projekty\cpp\io\parse\parse.cpp
 	"Parse.h"
 
 1581024956 source:d:\dokumenty\projekty\cpp\io\print\print.cpp
@@ -1932,19 +1933,724 @@
 1581192371 source:d:\dokumenty\projekty\cpp\io\search\search.cpp
 	"Search.h"
 
-1581190335 d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.h
+1581373014 d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.h
 	<string>
 	<vector>
 	<map>
 	<fstream>
 	"FunctionParser.h"
 
-1581192667 source:d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.cpp
+1581373014 source:d:\dokumenty\projekty\cpp\io\functionparser\function_dependency.cpp
 	"FunctionParser.h"
 	"function_dependency.h"
 	<iostream>
 	<map>
+	<regex>
+	<boost/algorithm/string/predicate.hpp>
 
-1581190335 d:\dokumenty\projekty\cpp\io\functionparser\functionparser.h
+1581373014 d:\dokumenty\projekty\cpp\io\functionparser\functionparser.h
 	<string>
+	<vector>
+
+1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\predicate.hpp
+	<boost/algorithm/string/config.hpp>
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/const_iterator.hpp>
+	<boost/range/as_literal.hpp>
+	<boost/range/iterator_range_core.hpp>
+	<boost/algorithm/string/compare.hpp>
+	<boost/algorithm/string/find.hpp>
+	<boost/algorithm/string/detail/predicate.hpp>
+
+1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\config.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\begin.hpp
+	<boost/range/config.hpp>
+	<boost/range/detail/begin.hpp>
+	<boost/range/iterator.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\config.hpp
+	<boost/detail/workaround.hpp>
+	<boost/config.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\begin.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/detail/common.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\iterator.hpp
+	<boost/range/config.hpp>
+	<boost/range/range_fwd.hpp>
+	<boost/range/mutable_iterator.hpp>
+	<boost/range/const_iterator.hpp>
+	<boost/type_traits/is_const.hpp>
+	<boost/type_traits/remove_const.hpp>
+	<boost/mpl/eval_if.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\range_fwd.hpp
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\mutable_iterator.hpp
+	<boost/range/config.hpp>
+	<boost/range/range_fwd.hpp>
+	<boost/range/detail/extract_optional_type.hpp>
+	<boost/type_traits/remove_reference.hpp>
+	<boost/iterator/iterator_traits.hpp>
+	<cstddef>
+	<utility>
+	<boost/range/detail/msvc_has_iterator_workaround.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\extract_optional_type.hpp
+	<boost/config.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/mpl/has_xxx.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\msvc_has_iterator_workaround.hpp
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\const_iterator.hpp
+	<boost/range/config.hpp>
+	<boost/range/range_fwd.hpp>
+	<boost/range/detail/extract_optional_type.hpp>
+	<boost/type_traits/remove_const.hpp>
+	<boost/type_traits/remove_reference.hpp>
+	<cstddef>
+	<utility>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\common.hpp
+	<boost/range/config.hpp>
+	<boost/range/detail/sfinae.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/if.hpp>
+	<boost/mpl/int.hpp>
+	<boost/mpl/or.hpp>
+	<cstddef>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\sfinae.hpp
+	<boost/range/config.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<utility>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\end.hpp
+	<boost/range/config.hpp>
+	<boost/range/detail/end.hpp>
+	<boost/range/detail/implementation_help.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/const_iterator.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\end.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/range/detail/implementation_help.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/detail/common.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\implementation_help.hpp
+	<boost/range/config.hpp>
+	<boost/range/detail/common.hpp>
+	<boost/type_traits/is_same.hpp>
+	<cstddef>
+	<string.h>
+	<wchar.h>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\as_literal.hpp
+	<boost/range/detail/as_literal.hpp>
+	<boost/range/iterator_range.hpp>
+	<boost/range/detail/str_types.hpp>
+	<boost/detail/workaround.hpp>
+	<cstring>
+	<cwchar>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\as_literal.hpp
+	<boost/range/detail/detail_str.hpp>
+	<boost/range/iterator_range.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\detail_str.hpp
+	<boost/config.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/detail/begin.hpp>
+	<boost/range/detail/end.hpp>
+	<boost/range/detail/size_type.hpp>
+	<boost/range/detail/value_type.hpp>
+	<boost/range/detail/common.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\size_type.hpp
+	<boost/range/detail/common.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\value_type.hpp
+	<boost/range/detail/common.hpp>
+	<boost/range/detail/remove_extent.hpp>
+	<boost/iterator/iterator_traits.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\remove_extent.hpp
+	<boost/config.hpp>
+	<cstddef>
+	<boost/mpl/eval_if.hpp>
+	<boost/mpl/identity.hpp>
+	<boost/type_traits/is_same.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\iterator_range.hpp
+	"boost/range/iterator_range_core.hpp"
+	"boost/range/iterator_range_io.hpp"
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\iterator_range_core.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/assert.hpp>
+	<boost/iterator/iterator_traits.hpp>
+	<boost/iterator/iterator_facade.hpp>
+	<boost/mpl/if.hpp>
+	<boost/mpl/not.hpp>
+	<boost/mpl/or.hpp>
+	<boost/type_traits/is_abstract.hpp>
+	<boost/type_traits/is_array.hpp>
+	<boost/type_traits/is_base_and_derived.hpp>
+	<boost/type_traits/is_convertible.hpp>
+	<boost/type_traits/is_function.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/range/functions.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/difference_type.hpp>
+	<boost/range/has_range_iterator.hpp>
+	<boost/range/algorithm/equal.hpp>
+	<boost/range/detail/safe_bool.hpp>
+	<boost/utility/enable_if.hpp>
+	<iterator>
+	<algorithm>
+	<cstddef>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\is_base_and_derived.hpp
+	<boost/type_traits/intrinsics.hpp>
+	<boost/type_traits/integral_constant.hpp>
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_convertible.hpp>
+	<boost/config.hpp>
+	<boost/static_assert.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/is_same.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\functions.hpp
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+	<boost/range/size.hpp>
+	<boost/range/distance.hpp>
+	<boost/range/empty.hpp>
+	<boost/range/rbegin.hpp>
+	<boost/range/rend.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\size.hpp
+	<boost/range/config.hpp>
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+	<boost/range/size_type.hpp>
+	<boost/range/detail/has_member_size.hpp>
+	<boost/assert.hpp>
+	<boost/cstdint.hpp>
+	<boost/utility.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\size_type.hpp
+	<boost/range/config.hpp>
+	<boost/range/difference_type.hpp>
+	<boost/range/concepts.hpp>
+	<boost/range/has_range_iterator.hpp>
+	<boost/utility/enable_if.hpp>
+	<boost/type_traits/make_unsigned.hpp>
+	<boost/type_traits/remove_const.hpp>
+	<cstddef>
+	<utility>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\difference_type.hpp
+	<boost/mpl/and.hpp>
+	<boost/range/config.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/has_range_iterator.hpp>
+	<boost/iterator/iterator_traits.hpp>
+	<boost/type_traits/remove_reference.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\has_range_iterator.hpp
+	<boost/mpl/bool.hpp>
+	<boost/mpl/eval_if.hpp>
+	<boost/mpl/has_xxx.hpp>
+	<boost/range/iterator.hpp>
+	<boost/type_traits/remove_reference.hpp>
+	<boost/utility/enable_if.hpp>
+
+1440790286 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\utility\enable_if.hpp
+	<boost/core/enable_if.hpp>
+
+1440790286 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\core\enable_if.hpp
+	"boost/config.hpp"
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\concepts.hpp
+	<boost/concept_check.hpp>
+	<boost/iterator/iterator_concepts.hpp>
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/value_type.hpp>
+	<boost/range/detail/misc_concept.hpp>
+	<boost/type_traits/remove_reference.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept_check.hpp
+	<boost/concept/assert.hpp>
+	<iterator>
+	<boost/type_traits/conversion_traits.hpp>
+	<utility>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/mpl/assert.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/concept/usage.hpp>
+	<boost/concept/detail/concept_def.hpp>
+	<boost/concept/detail/concept_undef.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\assert.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/concept/detail/msvc.hpp>
+	<boost/concept/detail/borland.hpp>
+	<boost/concept/detail/general.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\detail\msvc.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/concept/detail/backward_compatibility.hpp>
+	<boost/config.hpp>
+	<boost/concept/detail/has_constraints.hpp>
+	<boost/mpl/if.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\detail\backward_compatibility.hpp
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\detail\has_constraints.hpp
+	<boost/mpl/bool.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/concept/detail/backward_compatibility.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\detail\borland.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/concept/detail/backward_compatibility.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\detail\general.hpp
+	<boost/config.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/concept/detail/backward_compatibility.hpp>
+	<boost/concept/detail/has_constraints.hpp>
+	<boost/mpl/if.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\conversion_traits.hpp
+	<boost/type_traits/is_convertible.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\usage.hpp
+	<boost/concept/assert.hpp>
+	<boost/detail/workaround.hpp>
+	<boost/concept/detail/backward_compatibility.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\detail\concept_def.hpp
+	<boost/preprocessor/seq/for_each_i.hpp>
+	<boost/preprocessor/seq/enum.hpp>
+	<boost/preprocessor/comma_if.hpp>
+	<boost/preprocessor/cat.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\seq\for_each_i.hpp
+	<boost/preprocessor/arithmetic/dec.hpp>
+	<boost/preprocessor/arithmetic/inc.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/if.hpp>
+	<boost/preprocessor/control/iif.hpp>
+	<boost/preprocessor/repetition/for.hpp>
+	<boost/preprocessor/seq/seq.hpp>
+	<boost/preprocessor/seq/size.hpp>
+	<boost/preprocessor/seq/detail/is_empty.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\seq\enum.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/seq/size.hpp>
+
+1444892507 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\concept\detail\concept_undef.hpp
+
+1444967735 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\iterator\iterator_concepts.hpp
+	<boost/concept_check.hpp>
+	<boost/iterator/iterator_categories.hpp>
+	<boost/detail/iterator.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_integral.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/mpl/if.hpp>
+	<boost/mpl/and.hpp>
+	<boost/mpl/or.hpp>
+	<boost/static_assert.hpp>
+	<boost/limits.hpp>
+	<boost/config.hpp>
+	<algorithm>
+	<boost/concept/detail/concept_def.hpp>
+	<boost/concept/detail/concept_undef.hpp>
+
+1449600919 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\limits.hpp
+	<boost/config.hpp>
+	<limits>
+	<climits>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\value_type.hpp
+	<boost/range/config.hpp>
+	<boost/range/iterator.hpp>
+	<boost/iterator/iterator_traits.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\misc_concept.hpp
+	<boost/concept_check.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\make_unsigned.hpp
+	<boost/type_traits/conditional.hpp>
+	<boost/type_traits/is_integral.hpp>
+	<boost/type_traits/is_signed.hpp>
+	<boost/type_traits/is_unsigned.hpp>
+	<boost/type_traits/is_enum.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/is_const.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/add_const.hpp>
+	<boost/type_traits/add_volatile.hpp>
+	<boost/static_assert.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\conditional.hpp
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\is_signed.hpp
+	<boost/type_traits/is_integral.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/is_enum.hpp>
+	<climits>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\is_unsigned.hpp
+	<boost/type_traits/is_integral.hpp>
+	<boost/type_traits/is_enum.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<climits>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\add_volatile.hpp
+	<boost/config.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\has_member_size.hpp
+	<boost/type_traits/is_class.hpp>
+	<boost/type_traits/is_member_function_pointer.hpp>
+	<boost/mpl/and.hpp>
+	<boost/mpl/bool.hpp>
+	<boost/cstdint.hpp>
+
+1449600919 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\cstdint.hpp
+	<boost/config.hpp>
+	<inttypes.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<boost/limits.hpp>
+	<limits.h>
+	<stddef.h>
+	<limits.h>
+
+1441989078 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\utility.hpp
+	<boost/utility/addressof.hpp>
+	<boost/utility/base_from_member.hpp>
+	<boost/utility/binary.hpp>
+	<boost/utility/enable_if.hpp>
+	<boost/utility/identity_type.hpp>
+	<boost/checked_delete.hpp>
+	<boost/next_prior.hpp>
+	<boost/noncopyable.hpp>
+
+1441989078 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\utility\base_from_member.hpp
+	<boost/config.hpp>
+	<boost/preprocessor/arithmetic/inc.hpp>
+	<boost/preprocessor/repetition/enum_binary_params.hpp>
+	<boost/preprocessor/repetition/enum_params.hpp>
+	<boost/preprocessor/repetition/repeat_from_to.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/remove_reference.hpp>
+	<boost/utility/enable_if.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\repetition\enum_binary_params.hpp
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/punctuation/comma_if.hpp>
+	<boost/preprocessor/repetition/repeat.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\repetition\repeat_from_to.hpp
+	<boost/preprocessor/arithmetic/add.hpp>
+	<boost/preprocessor/arithmetic/sub.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/while.hpp>
+	<boost/preprocessor/debug/error.hpp>
+	<boost/preprocessor/detail/auto_rec.hpp>
+	<boost/preprocessor/repetition/repeat.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1441989078 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\utility\binary.hpp
+	<boost/preprocessor/control/deduce_d.hpp>
+	<boost/preprocessor/facilities/identity.hpp>
+	<boost/preprocessor/cat.hpp>
+	<boost/preprocessor/seq/cat.hpp>
+	<boost/preprocessor/seq/transform.hpp>
+	<boost/preprocessor/arithmetic/mod.hpp>
+	<boost/preprocessor/seq/size.hpp>
+	<boost/preprocessor/facilities/empty.hpp>
+	<boost/preprocessor/control/while.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\control\deduce_d.hpp
+	<boost/preprocessor/control/while.hpp>
+	<boost/preprocessor/detail/auto_rec.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\seq\cat.hpp
+	<boost/preprocessor/arithmetic/dec.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/if.hpp>
+	<boost/preprocessor/seq/fold_left.hpp>
+	<boost/preprocessor/seq/seq.hpp>
+	<boost/preprocessor/seq/size.hpp>
+	<boost/preprocessor/tuple/eat.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\seq\transform.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/seq/fold_left.hpp>
+	<boost/preprocessor/seq/seq.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\arithmetic\mod.hpp
+	<boost/preprocessor/arithmetic/detail/div_base.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\arithmetic\detail\div_base.hpp
+	<boost/preprocessor/arithmetic/inc.hpp>
+	<boost/preprocessor/arithmetic/sub.hpp>
+	<boost/preprocessor/comparison/less_equal.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/control/while.hpp>
+	<boost/preprocessor/tuple/elem.hpp>
+	<boost/preprocessor/tuple/rem.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\comparison\less_equal.hpp
+	<boost/preprocessor/arithmetic/sub.hpp>
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/logical/not.hpp>
+
+1444876587 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\preprocessor\logical\not.hpp
+	<boost/preprocessor/config/config.hpp>
+	<boost/preprocessor/logical/bool.hpp>
+	<boost/preprocessor/logical/compl.hpp>
+
+1441989078 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\utility\identity_type.hpp
+	<boost/type_traits/function_traits.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\function_traits.hpp
+	<boost/config.hpp>
+	<boost/type_traits/is_function.hpp>
+	<boost/type_traits/add_pointer.hpp>
+
+1440790286 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\checked_delete.hpp
+	<boost/core/checked_delete.hpp>
+
+1440790286 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\core\checked_delete.hpp
+
+1441989078 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\next_prior.hpp
+	<iterator>
+	<boost/mpl/and.hpp>
+	<boost/type_traits/is_integral.hpp>
+	<boost/type_traits/is_unsigned.hpp>
+	<boost/type_traits/integral_promotion.hpp>
+	<boost/type_traits/make_signed.hpp>
+	<boost/type_traits/has_plus.hpp>
+	<boost/type_traits/has_plus_assign.hpp>
+	<boost/type_traits/has_minus.hpp>
+	<boost/type_traits/has_minus_assign.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\integral_promotion.hpp
+	<boost/config.hpp>
+	<boost/type_traits/integral_constant.hpp>
+	<boost/type_traits/is_const.hpp>
+	<boost/type_traits/is_enum.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/remove_cv.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\make_signed.hpp
+	<boost/type_traits/conditional.hpp>
+	<boost/type_traits/is_integral.hpp>
+	<boost/type_traits/is_signed.hpp>
+	<boost/type_traits/is_unsigned.hpp>
+	<boost/type_traits/is_enum.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/is_const.hpp>
+	<boost/type_traits/is_volatile.hpp>
+	<boost/type_traits/add_const.hpp>
+	<boost/type_traits/add_volatile.hpp>
+	<boost/static_assert.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\has_plus.hpp
+	<boost/type_traits/detail/has_binary_operator.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\detail\has_binary_operator.hpp
+	<boost/config.hpp>
+	<boost/type_traits/detail/yes_no_type.hpp>
+	<boost/type_traits/integral_constant.hpp>
+	<boost/type_traits/is_base_of.hpp>
+	<boost/type_traits/is_const.hpp>
+	<boost/type_traits/is_convertible.hpp>
+	<boost/type_traits/is_fundamental.hpp>
+	<boost/type_traits/is_integral.hpp>
+	<boost/type_traits/is_pointer.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_void.hpp>
+	<boost/type_traits/remove_cv.hpp>
+	<boost/type_traits/remove_pointer.hpp>
+	<boost/type_traits/remove_reference.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\is_base_of.hpp
+	<boost/type_traits/is_base_and_derived.hpp>
+	<boost/type_traits/is_same.hpp>
+	<boost/type_traits/is_class.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\is_fundamental.hpp
+	<boost/type_traits/is_arithmetic.hpp>
+	<boost/type_traits/is_void.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\has_plus_assign.hpp
+	<boost/type_traits/detail/has_binary_operator.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\has_minus.hpp
+	<boost/type_traits/detail/has_binary_operator.hpp>
+
+1450010982 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\type_traits\has_minus_assign.hpp
+	<boost/type_traits/detail/has_binary_operator.hpp>
+
+1440790286 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\noncopyable.hpp
+	<boost/core/noncopyable.hpp>
+
+1440790286 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\core\noncopyable.hpp
+	<boost/config.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\distance.hpp
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+	<boost/range/difference_type.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\empty.hpp
+	<boost/range/config.hpp>
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\rbegin.hpp
+	<boost/range/end.hpp>
+	<boost/range/reverse_iterator.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\reverse_iterator.hpp
+	<boost/range/config.hpp>
+	<boost/range/iterator.hpp>
+	<boost/type_traits/remove_reference.hpp>
+	<boost/iterator/reverse_iterator.hpp>
+
+1444967735 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\iterator\reverse_iterator.hpp
+	<boost/next_prior.hpp>
+	<boost/iterator.hpp>
+	<boost/iterator/iterator_adaptor.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\rend.hpp
+	<boost/range/begin.hpp>
+	<boost/range/reverse_iterator.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\algorithm\equal.hpp
+	<boost/config.hpp>
+	<boost/range/concepts.hpp>
+	<iterator>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\safe_bool.hpp
+	<boost/config.hpp>
+	<boost/range/config.hpp>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\iterator_range_io.hpp
+	<boost/config.hpp>
+	<boost/detail/workaround.hpp>
+	<ostream>
+	<ostream.h>
+	<boost/range/iterator_range_core.hpp>
+	<iterator>
+	<algorithm>
+	<cstddef>
+
+1429600935 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\range\detail\str_types.hpp
+	<boost/range/size_type.hpp>
+	<boost/range/iterator.hpp>
+
+1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\compare.hpp
+	<boost/algorithm/string/config.hpp>
+	<locale>
+
+1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\find.hpp
+	<boost/algorithm/string/config.hpp>
+	<boost/range/iterator_range_core.hpp>
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/as_literal.hpp>
+	<boost/algorithm/string/finder.hpp>
+	<boost/algorithm/string/compare.hpp>
+	<boost/algorithm/string/constants.hpp>
+
+1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\finder.hpp
+	<boost/algorithm/string/config.hpp>
+	<boost/range/iterator_range_core.hpp>
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+	<boost/range/iterator.hpp>
+	<boost/range/const_iterator.hpp>
+	<boost/algorithm/string/constants.hpp>
+	<boost/algorithm/string/detail/finder.hpp>
+	<boost/algorithm/string/compare.hpp>
+
+1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\constants.hpp
+
+1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\detail\finder.hpp
+	<boost/algorithm/string/config.hpp>
+	<boost/algorithm/string/constants.hpp>
+	<boost/detail/iterator.hpp>
+	<boost/range/iterator_range_core.hpp>
+	<boost/range/begin.hpp>
+	<boost/range/end.hpp>
+	<boost/range/empty.hpp>
+	<boost/range/as_literal.hpp>
+
+1426739513 d:\dokumenty\projekty\cpp\lib\boost\boost_1_60_0\boost\algorithm\string\detail\predicate.hpp
+	<iterator>
+	<boost/algorithm/string/find.hpp>
+
+1581375097 source:d:\dokumenty\projekty\cpp\io\graphviz\graphviz.cpp
+	<string>
+	"Graphviz.h"
+
+1581368324 d:\dokumenty\projekty\cpp\io\graphviz\graphviz.h
+	<string>
+
+1581376133 source:d:\dokumenty\projekty\cpp\io\parserdot\parserdot.cpp
+	"ParserDOT.h"
+	<string>
+	<fstream>
+
+1581368324 d:\dokumenty\projekty\cpp\io\parserdot\parserdot.h
+	<vector>
+	<string>
+	<iostream>
 
