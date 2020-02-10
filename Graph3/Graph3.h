@@ -10,7 +10,7 @@ namespace graph3
 	typedef std::vector<std::pair<Edge, unsigned int>> Graph;
 
 	void removeDuplicates(std::vector<std::string>&);
-	void PrintModulesConnection(fList);
+	
 
 	std::vector<Edge> searchForConnections(fList);
 	std::vector<Edge> getNSConnections(fList);
@@ -20,5 +20,6 @@ namespace graph3
 	std::vector<std::string> getUsedUserNamespaces(std::string, std::vector<std::string>, std::vector<std::string>);
 	
 	Graph getWeight(std::vector<Edge>);
+	Graph getGraph(fList);
 	
 }

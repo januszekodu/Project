@@ -132,15 +132,11 @@ namespace graph3
 		return Graph;
 	}
 
-	void PrintModulesConnection(fList fileList)
+	Graph getGraph(fList fileList)
 	{
 		std::vector<Edge> nsConnections = getNSConnections(fileList);
 		Graph graph = getWeight(nsConnections);
 
-		for (auto const& g : graph)
-        {
-			std::cout << g.first.first << " ---> " << g.first.second << "  WEIGHT: "<< g.second << std::endl;
-		}
-
+		return graph;
 	}
 }
