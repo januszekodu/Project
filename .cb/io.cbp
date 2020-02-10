@@ -16,7 +16,8 @@
 					<Add option="-std=c++17" />
 					<Add option="-lstdc++fs" />
 					<Add option="-g" />
-					<Add directory="../lib/boost/boost_1_60_0" />
+					<Add directory="../../lib/boost/boost_1_60_0" />
+					<Add directory="../../lib/graphviz/graphviz-2.38" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -35,6 +36,7 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add directory="../../lib/boost/boost_1_60_0" />
+			<Add directory="../../lib/graphviz/graphviz-2.38" />
 		</Compiler>
 		<Unit filename="../FilesOperations/Files.cpp" />
 		<Unit filename="../FilesOperations/Files.h" />
@@ -46,9 +48,12 @@
 		<Unit filename="../Graph3/Graph3.h" />
 		<Unit filename="../Graph/Parser.cpp" />
 		<Unit filename="../Graph/Parser.h" />
+		<Unit filename="../Graphviz/Graphviz.cpp" />
+		<Unit filename="../Graphviz/Graphviz.h" />
 		<Unit filename="../Parse/Parse.cpp" />
 		<Unit filename="../Parse/Parse.h" />
-		<Unit filename="../Print/Print.cpp" />
+		<Unit filename="../ParserDOT/ParserDOT.cpp" />
+		<Unit filename="../ParserDOT/ParserDOT.h" />
 		<Unit filename="../Print/Print.h" />
 		<Unit filename="../Search/Search.cpp" />
 		<Unit filename="../Search/Search.h" />

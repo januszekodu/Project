@@ -12,8 +12,8 @@ void ThirdStory();
 
 int main()
 {
-	FirstStory();
-	//SecondStory();
+//	FirstStory();
+	SecondStory();
 	//ThirdStory();
 }
 
