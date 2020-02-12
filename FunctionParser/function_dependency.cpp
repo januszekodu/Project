@@ -5,13 +5,11 @@
 #include <regex>
 #include <boost/algorithm/string/predicate.hpp>
 
-using namespace std;
-
 namespace functionParser
 {
-    std::vector<std::string> get_function_headers(string filePath)
+    std::vector<std::string> get_function_headers(std::string filePath)
     {
-        ifstream headerFile;
+        std::ifstream headerFile;
 
         headerFile.open(filePath);
 
@@ -169,6 +167,8 @@ namespace functionParser
                         if (functionHeader == call)
                         {
                             function_calls.push_back(call);
+
+                            break;
                         }
                     }
                 }
@@ -178,7 +178,7 @@ namespace functionParser
         return function_calls;
     }
 
-    bool is_header_file(const string filePath)
+    bool is_header_file(const std::string filePath)
     {
         return boost::algorithm::ends_with(filePath, ".h") || boost::algorithm::ends_with(filePath, ".hpp");
     }
