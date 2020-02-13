@@ -25,8 +25,9 @@ namespace functionParser
     bool is_namespace(const std::string line)
     {
         std::regex pattern("namespace (\\w+)");
+        std::smatch match;
 
-        return std::regex_match(line, pattern);
+        return std::regex_search(line, match, pattern);
     }
 
     std::string get_namespace(const std::string line)
