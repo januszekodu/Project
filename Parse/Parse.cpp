@@ -61,7 +61,7 @@ namespace fileParse
             }
         }
 
-        if (currentFile == "Parse.cpp")
+        if (currentFile == "Parse.cpp" || currentFile == "FunctionParser.cpp")
             vectorWithFiles.pop_back();
 
         fileDataVec.emplace_back(fileData);
