@@ -82,7 +82,6 @@ namespace graph3
 			for (int j = 0; j < userUsed.size(); j++)
 			{
 				filesAndModules.push_back(Edge(fileList[i], userUsed[j]));
-				std::cout << fileList[i] << " -> " << userUsed[j] << std::endl;
 			}
 		}
 		return filesAndModules;
