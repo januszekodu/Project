@@ -12,28 +12,28 @@ void ThirdStory();
 
 int main()
 {
-//	FirstStory();
-	SecondStory();
+    //FirstStory();
+	//SecondStory();
 	//ThirdStory();
 }
 
 void FirstStory()
 {
-	std::cout << "First story:\n\n";
+	std::cout << "First story: ";
 
 	std::vector<std::string> files = filesOperations::getFilesArray();
 
 	fileParse::FilePair filePair = fileParse::parse(files);
 	std::vector<Graph::Edge> graphEdges = Graph::parse(filePair.second);
 
-    parserDOT::ParseToDOT_1(graphEdges); //parsowanie danych wektora graphEdges do pliku graph.dot
+    parserDOT::ParseToDOT_1(graphEdges, filePair.first); //parsowanie danych wektora graphEdges do pliku graph.dot
     Graphviz::GenGraph(); //generowanie z pliku graph.dot pliku graph.jpg
     Graphviz::OpenGraph(); //otwarcie grafu (pliku graph.jpg)
 }
 
 void SecondStory()
 {
-	std::cout << "Second story:\n\n";
+	std::cout << "Second story: ";
     std::vector<std::string> files = filesOperations::getFilesArray();
 
     std::vector<std::string> functionHeaders;
@@ -53,15 +53,18 @@ void SecondStory()
 
 	std::vector<Graph::Edge> graphEdges = Graph::parse(allDependencies);
 
-    parserDOT::ParseToDOT_1(graphEdges); //parsowanie danych wektora graphEdges do pliku graph.dot
+    parserDOT::ParseToDOT_2(graphEdges); //parsowanie danych wektora graphEdges do pliku graph.dot
     Graphviz::GenGraph(); //generowanie z pliku graph.dot pliku graph.jpg
     Graphviz::OpenGraph(); //otwarcie grafu (pliku graph.jpg)
 }
 
 void ThirdStory()
 {
-	std::cout << "Third story:\n\n";
+	std::cout << "Third story: ";
 	std::vector<std::string> files = filesOperations::getFilesArray();
 	graph3::Graph graph = graph3::getGraph(files);
-	std::cout << std::endl;
+
+    parserDOT::ParseToDOT_3(graph); //parsowanie danych wektora graphEdges do pliku graph.dot
+    Graphviz::GenGraph(); //generowanie z pliku graph.dot pliku graph.jpg
+    Graphviz::OpenGraph(); //otwarcie grafu (pliku graph.jpg)
 }
