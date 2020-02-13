@@ -123,7 +123,7 @@ namespace fileParse
         }
 
         cleanMap(fileMap);
-        getSizeAfterClean(fileMap, fileDataVec);
+        //getSizeAfterClean(fileMap, fileDataVec);
 
         filePair.first = fileDataVec;
         filePair.second = fileMap;
