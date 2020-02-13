@@ -2,63 +2,68 @@
 
 namespace graph3
 {
-
-	void removeDuplicates(std::vector<std::string>& stringArray)
+	//creating vector of all used modules in selected file
+	std::vector<std::string> getUsedModules(std::string filePath)
 	{
-		stringArray.erase(std::unique(stringArray.begin(), stringArray.end()), stringArray.end());
-	}
-
-	std::vector<std::string> getUsedNamespaces(std::string filePath)
-	{
-		std::vector<std::string> NSpaces;
+		std::vector<std::string> usedModules;
 		std::string line;
 		std::ifstream file;
 
 		file.open(filePath);
 		if (file.is_open())
-            {
+        {
 			while (std::getline(file, line))
 			{
 				if (line.find("::") != std::string::npos)
 				{
-					line = line.substr(0, line.find_first_of("::"));
-					if (line.find(" ") != std::string::npos)
-						line = line.substr(line.find_last_of(" "), line.length());
-					line.erase(std::remove(line.begin(), line.end(), '\t'));
-					line.erase(std::remove(line.begin(), line.end()-1, ' '));
-					NSpaces.push_back(line);
+					std::vector<std::string> lineSplitted = strOperations::SplitString(line, "::");
+					for (int i = 0; i < lineSplitted.size(); i++) 
+					{
+						lineSplitted[i] = lineSplitted[i].substr(0, lineSplitted[i].find_first_of("::"));
+						
+						if (lineSplitted[i].find(" ") != std::string::npos)
+							lineSplitted[i] = lineSplitted[i].substr(lineSplitted[i].find_last_of(" ")+1, lineSplitted[i].length());
+						if (lineSplitted[i].find("(") != std::string::npos)
+							lineSplitted[i] = lineSplitted[i].substr(lineSplitted[i].find_last_of("(")+1, lineSplitted[i].length());
+						if (lineSplitted[i].find("<") != std::string::npos)
+							lineSplitted[i] = lineSplitted[i].substr(lineSplitted[i].find_last_of("<")+1, lineSplitted[i].length());
+						if (lineSplitted[i].find(",") != std::string::npos)
+							lineSplitted[i] = lineSplitted[i].substr(lineSplitted[i].find_last_of(",")+1, lineSplitted[i].length());
+
+						lineSplitted[i].erase(remove_if(lineSplitted[i].begin(), lineSplitted[i].end(), isspace), lineSplitted[i].end());
+						usedModules.push_back(lineSplitted[i]);
+					}
 				}
 			}
 		}
-		return NSpaces;
+		return usedModules;
 	}
 
-	std::vector<std::string> getUserCreatedNamespaces(fList fileList)
+	
+	std::vector<std::string> getUserCreatedModules(fList fileList)
     {
 
 		fMap fileMap = Search::cone(fileList);
-		std::vector<std::string> userNamespaces;
+		std::vector<std::string> userModules;
 
 		for (auto it = fileMap.cbegin(); it != fileMap.cend(); ++it)
-        {
 			for (auto it2 = it->second.begin(); it2 != it->second.end(); ++it2)
-				userNamespaces.push_back(*it2);
-		}
-		removeDuplicates(userNamespaces);
+				userModules.push_back(*it2);
+		strOperations::removeDuplicates(userModules);
 
-		return userNamespaces;
+		return userModules;
 	}
 
-	std::vector<std::string> getUsedUserNamespaces(std::string filePath, std::vector<std::string>userNamespaces, std::vector<std::string> usedNamespaces)
+	std::vector<std::string> getUsedUserModules(std::string filePath, std::vector<std::string>userModules, std::vector<std::string> usedModules)
 	{
 		std::vector<std::string> listOfFiles;
-		for (int i = 0; i < usedNamespaces.size(); i++)
+		for (int i = 0; i < usedModules.size(); i++)
             {
-			for (int j = 0; j < userNamespaces.size(); j++)
+			for (int j = 0; j < userModules.size(); j++)
 			{
-				if (usedNamespaces[i] == userNamespaces[j])
+				if (usedModules[i] == userModules[j])
 				{
-					listOfFiles.push_back(usedNamespaces[i]);
+					listOfFiles.push_back(usedModules[i]);
 				}
 			}
 		}
@@ -68,18 +73,19 @@ namespace graph3
 
 	std::vector<Edge> searchForConnections(fList fileList)
 	{
-		std::vector<Edge> filesAndNamespaces;
-		std::vector<std::string> userNamespaces = getUserCreatedNamespaces(fileList);
+		std::vector<Edge> filesAndModules;
+		std::vector<std::string> userModules = getUserCreatedModules(fileList);
 		for (int i = 0; i < fileList.size(); i++)
         {
-			std::vector<std::string> usedNamespaces = getUsedNamespaces(fileList[i]);
-			std::vector<std::string> userUsed = getUsedUserNamespaces(fileList[i], userNamespaces, usedNamespaces);
+			std::vector<std::string> usedModules = getUsedModules(fileList[i]);
+			std::vector<std::string> userUsed = getUsedUserModules(fileList[i], userModules, usedModules);
 			for (int j = 0; j < userUsed.size(); j++)
 			{
-				filesAndNamespaces.push_back(Edge(fileList[i], userUsed[j]));
+				filesAndModules.push_back(Edge(fileList[i], userUsed[j]));
+				std::cout << fileList[i] << " -> " << userUsed[j] << std::endl;
 			}
 		}
-		return filesAndNamespaces;
+		return filesAndModules;
 	}
 
 	std::vector<Edge> getNSConnections(fList fileList)
@@ -109,18 +115,13 @@ namespace graph3
 		Graph Graph;
 
 		for (int i = 0; i < nsConnections.size(); i++)
-        {
 			Graph.push_back(std::pair(nsConnections[i], 1));
-		}
 
 		for (int j = 0; j < Graph.size(); j++)
         {
 			for (int k = j + 1; k < Graph.size();)
 			{
-				if (
-                    Graph[j].first.first == Graph[k].first.first &&
-					Graph[j].first.second == Graph[k].first.second
-                )
+				if (Graph[j].first.first == Graph[k].first.first && Graph[j].first.second == Graph[k].first.second)
                 {
 					Graph[j].second++;
 					Graph.erase(Graph.begin() + k);

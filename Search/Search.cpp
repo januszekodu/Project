@@ -31,10 +31,9 @@ namespace Search
 
 		while (std::getline(file, line))
 		{
-			if (line.find("namespace") != std::string::npos)
+			if (line.find("namespace ") != std::string::npos)
 			{
 				tokenizer tokens(line, lSep);
-
 				for (tokenizer::iterator token_it = tokens.begin(); token_it != tokens.end(); token_it++)
 				{
 					if (distance(tokens.begin(), token_it) == 1)
@@ -46,10 +45,9 @@ namespace Search
 						{
 							Name = token;
 						}
-						fileVector.emplace_back(Name);
-
+						if (Name.find("namespace") == std::string::npos) 
+							fileVector.emplace_back(Name);
 					}
-
 				}
 			}
 
@@ -60,8 +58,6 @@ namespace Search
 			fileVector.pop_back();
 
 		fileMap.insert(std::pair<std::string, std::vector<std::string>>(cFile, fileVector));
-
-
 	}
 
 
