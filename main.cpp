@@ -17,7 +17,7 @@ int main()
     std::cout << "Witaj w projekcie IO!\n\n";
     while (true)
     {
-        std::cout << "Menu: 1 - Pierwsza historyjka, 2 - Druga historyjka, 3 - Trzecie historyjka, 0 - Wyjscie\n\n";
+        std::cout << "Menu: 1 - Pierwsza historyjka, 2 - Druga historyjka, 3 - Trzecia historyjka, 0 - Wyjscie\n\n";
         std::cout << "Wpisz numer: ";
         std::cin >> choose;
         std::cout << "\n\n";
