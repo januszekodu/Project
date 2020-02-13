@@ -12,14 +12,31 @@ void ThirdStory();
 
 int main()
 {
-    //FirstStory();
-	//SecondStory();
-	//ThirdStory();
+    int choose;
+
+    std::cout << "Witaj w projekcie IO!\n\n";
+    while (true)
+    {
+        std::cout << "Menu: 1 - Pierwsza historyjka, 2 - Druga historyjka, 3 - Trzecia historyjka, 0 - Wyjscie\n\n";
+        std::cout << "Wpisz numer: ";
+        std::cin >> choose;
+        std::cout << "\n\n";
+
+        if (choose == 1) FirstStory();
+        if (choose == 2) SecondStory();
+        if (choose == 3) ThirdStory();
+        if (choose == 0) break;
+
+        std::cout << "\n\n";
+    }
+
+    std::cout << "\n\nDziekujemy za skorzystanie z programu!";
+
 }
 
 void FirstStory()
 {
-	std::cout << "First story: ";
+	std::cout << "First story: Generowanie grafu...";
 
 	std::vector<std::string> files = filesOperations::getFilesArray();
 
@@ -33,7 +50,7 @@ void FirstStory()
 
 void SecondStory()
 {
-	std::cout << "Second story: ";
+	std::cout << "Second story: Generowanie grafu...";
     std::vector<std::string> files = filesOperations::getFilesArray();
 
     std::vector<std::string> functionHeaders;
@@ -60,7 +77,7 @@ void SecondStory()
 
 void ThirdStory()
 {
-	std::cout << "Third story: ";
+	std::cout << "Third story: Generowanie grafu...";
 	std::vector<std::string> files = filesOperations::getFilesArray();
 	graph3::Graph graph = graph3::getGraph(files);
 
