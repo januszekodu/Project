@@ -12,6 +12,11 @@ Three programming tasks merged into one project:
 ## Libraries
 
 * [BOOST](https://www.boost.org/doc/) - Free peer-reviewed portable C++ source libraries.
+* [Graphviz](https://www.graphviz.org/documentation/) - Graph Visualization Software.
+
+## Install
+
+Before running project you need to install [Graphviz](https://www.graphviz.org/download/) and [BOOST](https://www.boost.org/users/download/) library.
 
 ## Authors
 
