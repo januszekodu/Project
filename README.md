@@ -16,7 +16,7 @@ Three programming tasks merged into one project:
 
 ## Install
 
-Before running project you need to install [Graphviz](https://www.graphviz.org/download/) and [BOOST](https://www.boost.org/users/download/) library.
+Before running project you need to install [Graphviz](https://www.graphviz.org/download/) and [BOOST](https://www.boost.org/users/download/) library. Filesystem library need C++17 version.
 
 ## Authors
 
