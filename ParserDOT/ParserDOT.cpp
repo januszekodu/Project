@@ -7,7 +7,7 @@ namespace parserDOT
 {
     void ParseToDOT_1(Dependencies files, FilesInfo data)
     {
-        std::string graphInDOT = "graph{ ";
+        std::string graphInDOT = "digraph{ ";
         int s_1 = 0, s_2 = 0;
         bool FirstFound, SecondFound;
 
@@ -32,7 +32,7 @@ namespace parserDOT
             if (!FirstFound) s_1 = 0;
             if (!SecondFound) s_2 = 0; //przypisanie zera w przypadku braku danych
 
-            graphInDOT += "\"" + dep.first + " (" + std::to_string(s_1) + ")" + "\" -- \"" + dep.second + " (" + std::to_string(s_2) + ")" + "\";"; //dodanie linii w jêzyku DOT
+            graphInDOT += "\"" + dep.first + " (" + std::to_string(s_1) + ")" + "\" -> \"" + dep.second + " (" + std::to_string(s_2) + ")" + "\";"; //dodanie linii w jêzyku DOT
 
         }
 
@@ -47,13 +47,13 @@ namespace parserDOT
 
     void ParseToDOT_2(Dependencies files)
     {
-        std::string graphInDOT = "graph{ ";
+        std::string graphInDOT = "digraph{ ";
 
 
 
         for (std::pair<std::string, std::string> dep : files)
         {
-            graphInDOT += "\"" + dep.first + "\" -- \"" + dep.second + "\";";
+            graphInDOT += "\"" + dep.first + "\" -> \"" + dep.second + "\";";
         }
 
         graphInDOT += "}";
@@ -67,13 +67,13 @@ namespace parserDOT
 
     void ParseToDOT_3(const graph3::Graph dependencies)
     {
-        std::string graphInDOT = "graph{ ";
+        std::string graphInDOT = "digraph{ ";
 
 
 
         for (std::pair<graph3::Edge, unsigned int> dep : dependencies)
         {
-            graphInDOT += "\"" + dep.first.first + "\" -- \"" + dep.first.second + "\"[label=\"" + std::to_string(dep.second) + "\"];";
+            graphInDOT += "\"" + dep.first.first + "\" -> \"" + dep.first.second + "\"[label=\"" + std::to_string(dep.second) + "\"];";
         }
 
         graphInDOT += "}";
