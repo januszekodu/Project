@@ -4,7 +4,6 @@ namespace filesOperations
 {
 	std::vector<std::string> getFilesArray()
 	{
-
 		auto dir = ".";
 		std::vector<std::string> filesList;
 		for (auto item : std::filesystem::recursive_directory_iterator(dir))
