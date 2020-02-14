@@ -42,11 +42,11 @@ namespace functionParser
     {
             std::ifstream file;
 
-            FunctionDependency tmp;
+            FunctionDependency functionDependency;
 
             if (is_header_file(filePath))
             {
-                return tmp;
+                return functionDependency;
             }
 
             if (filePath == ".\\main.cpp")
@@ -60,7 +60,7 @@ namespace functionParser
 
             if (!file.is_open())
             {
-                return tmp;
+                return functionDependency;
             }
 
             while (!file.eof())
@@ -70,18 +70,18 @@ namespace functionParser
 
                 if (is_namespace(currentLine))
                 {
-                    parseNamespace(get_namespace(currentLine), file, tmp, allFunctionHeaders);
+                    parseNamespace(get_namespace(currentLine), file, functionDependency, allFunctionHeaders);
                 }
 
                 if (is_function_header(currentLine))
                 {
-                    tmp.insert(std::pair<std::string, std::vector<std::string>>(get_function_header(currentLine), parseFunction(file, allFunctionHeaders)));
+                    functionDependency.insert(std::pair<std::string, std::vector<std::string>>(get_function_header(currentLine), parseFunction(file, allFunctionHeaders)));
                 }
             }
 
             file.close();
 
-            return tmp;
+            return functionDependency;
     }
 
     void parseNamespace(std::string namespaceName, std::ifstream &file, FunctionDependency &dependencies, const std::vector<std::string> &allFunctionHeaders)
